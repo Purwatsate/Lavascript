@@ -1,6 +1,5 @@
 import "./QuickStart.css";
-import ConditionalRendering from "./ConditionalRendering/ConditionalRendering";
-
+import {ShoppingList} from "./RenderingList/RenderingList";
 // variable
 // const User = "UserA"; // string variable
 // const NAME = <h1> Hello {User} </h1>; // JSX element
@@ -14,7 +13,7 @@ export function QuickStart() {
   return (
     <div className="quickStartContainer">
       <div>
-        <ConditionalRendering />
+        <ShoppingList />
       </div>
     </div>
   );

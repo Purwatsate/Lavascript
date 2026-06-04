@@ -1,75 +1,116 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React၊ TypeScript၊ Vite နဲ့ Tailwind CSS သုံးပြီး frontend application တစ်ခု စတင်ရေးသားဖို့ အခြေခံ project setup ဖြစ်ပါတယ်။
 
-Currently, two official plugins are available:
+## အသုံးပြုထားသော နည်းပညာများ
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI library
+- **TypeScript** — type safety
+- **Vite** — dev server နဲ့ build tool
+- **Tailwind CSS** — utility-first CSS framework
+- **React Compiler** — React component optimization
+- **ESLint** — code quality စစ်ဆေးခြင်း
+
+## လိုအပ်ချက်များ
+
+- [Node.js](https://nodejs.org/) (LTS version အကြံပြုပါတယ်)
+- npm (Node.js နဲ့အတူ ပါလာပါတယ်)
+
+## စတင်အသုံးပြုနည်း
+
+### 1. Dependencies တပ်ဆင်ခြင်း
+
+```bash
+npm install
+```
+
+### 2. Development server ဖွင့်ခြင်း
+
+```bash
+npm run dev
+```
+
+Browser မှာ Vite ပေးထားတဲ့ local URL (ဥပမာ `http://localhost:5173`) ကို ဖွင့်ပါ။
+
+### 3. Production build လုပ်ခြင်း
+
+```bash
+npm run build
+```
+
+Build output က `dist/` folder ထဲမှာ ရှိပါမယ်။
+
+### 4. Production build ကို preview လုပ်ခြင်း
+
+```bash
+npm run preview
+```
+
+### 5. Lint စစ်ဆေးခြင်း
+
+```bash
+npm run lint
+```
+
+## Project ဖွဲ့စည်းပုံ
+
+```
+react/
+├── public/          # Static assets
+├── src/
+│   ├── assets/      # Images, icons စသည်
+│   ├── components/  # React components (ဥပမာ Header)
+│   ├── App.tsx      # Main app component
+│   ├── main.tsx     # Application entry point
+│   └── index.css    # Tailwind CSS directives
+├── index.html
+├── tailwind.config.js
+├── postcss.config.js
+├── vite.config.ts
+└── package.json
+```
+
+## Tailwind CSS
+
+Tailwind CSS ကို project ထဲ configure လုပ်ထားပါတယ်။ Component တွေမှာ utility class တွေ တိုက်ရိုက်သုံးနိုင်ပါတယ်။
+
+```tsx
+<h1 className="text-3xl font-bold underline">Hello</h1>
+```
+
+`src/index.css` ထဲမှာ Tailwind directives တွေ ပါဝင်ပါတယ်။
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Editor ထဲမှာ `@tailwind` warning ပေါ်နေရင် workspace root ရဲ့ `.vscode/settings.json` က warning ကို ignore လုပ်ပေးထားပါတယ်။ Tailwind CSS IntelliSense extension ကိုလည်း install လုပ်နိုင်ပါတယ်။
 
 ## React Compiler
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+ဒီ template မှာ React Compiler ကို enable လုပ်ထားပါတယ်။ Component re-render optimization အတွက် အသုံးပြုပါတယ်။ ပိုမိုသိရှိလိုပါက [React Compiler documentation](https://react.dev/learn/react-compiler) ကို ကြည့်ပါ။
 
-Note: This will impact Vite dev & build performances.
+**မှတ်ချက်:** React Compiler က dev server နဲ့ build performance ကို အနည်းငယ် သက်ရောက်နိုင်ပါတယ်။
 
-## Expanding the ESLint configuration
+## ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Production application တစ်ခု ရေးသားမယ်ဆိုရင် type-aware lint rules တွေကို enable လုပ်ဖို့ ESLint config ကို update လုပ်ဖို့ အကြံပြုပါတယ်။
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+`eslint.config.js` ထဲမှာ `tseslint.configs.recommended` အစား အောက်ပါ config တွေထဲက တစ်ခုကို သုံးနိုင်ပါတယ်။
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `tseslint.configs.recommendedTypeChecked`
+- `tseslint.configs.strictTypeChecked` (ပိုတင်းကျပ်သော rules)
+- `tseslint.configs.stylisticTypeChecked` (style rules)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React-specific lint rules လိုချင်ရင် [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) နဲ့ [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) ကို install လုပ်နိုင်ပါတယ်။
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts အကျဉ်းချုပ်
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Script | လုပ်ဆောင်ချက် |
+|--------|-------------|
+| `npm run dev` | Development server ဖွင့်ခြင်း |
+| `npm run build` | Production build လုပ်ခြင်း |
+| `npm run preview` | Build ကို local preview လုပ်ခြင်း |
+| `npm run lint` | ESLint နဲ့ code စစ်ဆေးခြင်း |

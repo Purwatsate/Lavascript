@@ -1,5 +1,5 @@
 import "./QuickStart.css";
-import {ShoppingList} from "./RenderingList/RenderingList";
+import ShoppingList from "./RenderingList/RenderingList";
 // variable
 // const User = "UserA"; // string variable
 // const NAME = <h1> Hello {User} </h1>; // JSX element

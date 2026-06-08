@@ -1,11 +1,11 @@
 import './App.css'
-import { StateTest } from './components/StateTest'
+import { UsersList } from './components/UsersList'
 
 function App() {
   return (
-    <div className="app">
-      <StateTest />
-    </div>
+    <>
+      <UsersList />
+    </>
   )
 }
 

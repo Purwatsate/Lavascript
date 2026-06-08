@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorMessage from "./ErrorMessage";
+import { useTheme } from "../context/ThemeContext";
 
 interface User {
   id: number;
@@ -12,8 +13,9 @@ export function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { theme, toggleTheme } = useTheme();
 
-   useEffect(() => {
+  useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -35,6 +37,10 @@ export function UsersList() {
 
   return (
     <div className="grid gap-4">
+      Current Theme: {theme}
+      <button onClick={toggleTheme} className="px-4 py-2 bg-blue-500 text-white rounded">
+        Toggle Theme
+      </button>
       {users.map(user => (
         <div key={user.id} className="p-4 bg-white rounded-lg shadow">
           <h3 className="font-bold">{user.name}</h3>

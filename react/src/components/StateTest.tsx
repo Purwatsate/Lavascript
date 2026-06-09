@@ -20,7 +20,7 @@ export const StateTest = () => {
 
     return (
         <div>
-            <Header title="State Test" point={point} />
+            <Header/>
             <button className="p-2 btn btn-primary" onClick={addPoint}>Add Point</button>
             <button className="p-2 btn btn-secondary" onClick={resetPoint}>Reset Point</button>
             <button className="p-2 btn btn-danger" onClick={subtractPoint}>Subtract Point</button>

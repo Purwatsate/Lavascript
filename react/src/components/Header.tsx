@@ -1,18 +1,21 @@
-interface HeaderProps {
-  title?: string;
-  point: number;
-}
+import { NavLink } from "react-router"
 
-export const Header = ({ title, point }: HeaderProps) => {
+const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  isActive ? "text-red-500 font-bold" : "text-gray-500 hover:text-gray-800"
+
+export const Header = () => {
   return (
-    <>
-      {
-        title ? <h1>{title}</h1> : <h1>Default Title</h1>
-      }
-      {
-        title && <h1>{title}</h1>
-      }
-      <p>Point: {point}</p>
-    </>
+    <div>
+      <NavLink to="/" className={navLinkClass}>
+        Go to Home
+      </NavLink>
+      <br />
+      <NavLink to="/about" className={navLinkClass}>
+        Go to About Page
+      </NavLink>
+      <br />
+      <NavLink to={"/users"} className={navLinkClass}>
+        Go to Users Page</NavLink>
+    </div>
   )
 }

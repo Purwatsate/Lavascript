@@ -22,8 +22,8 @@ node es6/section-01-new-es6-syntax/01-let.js
 
 | # | Folder | Status |
 |---|--------|--------|
-| 1 | [section-01-new-es6-syntax](./section-01-new-es6-syntax/) | In progress |
-| 2 | section-02-destructuring | Not started |
+| 1 | [section-01-new-es6-syntax](./section-01-new-es6-syntax/) | Done |
+| 2 | [section-02-destructuring](./section-02-destructuring/) | In progress |
 | 3 | section-03-es6-modules | Not started |
 | 4 | section-04-es6-classes | Not started |
 | 5 | section-05-arrow-functions | Not started |

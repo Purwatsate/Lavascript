@@ -25,11 +25,11 @@ node es6/section-01-new-es6-syntax/01-let.js
 | 1 | [section-01-new-es6-syntax](./section-01-new-es6-syntax/) | Done |
 | 2 | [section-02-destructuring](./section-02-destructuring/) | In progress |
 | 3 | section-03-es6-modules | Not started |
-| 4 | section-04-es6-classes | Not started |
-| 5 | section-05-arrow-functions | Not started |
+| 4 | [section-04-es6-classes](./section-04-es6-classes/) | Done |
+| 5 | [section-05-arrow-functions](./section-05-arrow-functions/) | Done |
 | 6 | section-06-symbol | Not started |
 | 7 | section-07-iterators-generators | Not started |
-| 8 | section-08-promises | Not started |
+| 8 | [section-08-promises](./section-08-promises/) | Done |
 | 9 | section-09-es6-collections | Not started |
 | 10 | section-10-array-extensions | Not started |
 | 11 | section-11-object-extensions | Not started |
